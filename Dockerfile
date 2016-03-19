@@ -1,5 +1,5 @@
 # docker build -t my/zeronet .
-# docker run -d -v ~/.zeronetdata:/data -p 43110:43110 my/zeronet
+# docker run -d --name zeronet -v ~/.zeronetdata:/data -p 43110:43110 my/zeronet
 
 FROM alpine:3.3
 MAINTAINER Andrey Arapov <andrey.arapov@nixaid.com>
