@@ -1,0 +1,8 @@
+#!/bin/sh
+# This script has to be placed at $HOME/$USER/$PROJECT directory
+
+# Switch to the directory of this script
+cd "$(dirname "$(realpath "$0")")"
+
+chown -Rh $USER:$USER $DATA
+su -s /bin/sh $USER -c "python zeronet.py --ui_ip 0.0.0.0"
