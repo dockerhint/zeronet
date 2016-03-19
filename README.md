@@ -12,7 +12,7 @@ docker build -t my/zeronet .
 Run
 ===
 ```
-docker run -d my/zeronet
+docker run -d -p 43110:43110 my/zeronet
 ```
 
 Access
