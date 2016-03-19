@@ -1,0 +1,28 @@
+FROM debian:jessie
+MAINTAINER Andrey Arapov <andrey.arapov@nixaid.com>
+
+# To avoid problems with Dialog and curses wizards
+ENV DEBIAN_FRONTEND noninteractive
+
+RUN apt-get update \
+    && apt-get -qy install python python-gevent python-msgpack wget
+
+ENV USER zeronet
+ENV UID 7000
+ENV HOME /home/$USER
+RUN useradd -u $UID -m -d $HOME -s /usr/sbin/nologin $USER
+
+RUN echo "UTC" > /etc/timezone \
+    && dpkg-reconfigure tzdata
+
+USER $USER
+WORKDIR $HOME
+RUN wget -q https://github.com/HelloZeroNet/ZeroNet/archive/master.tar.gz \
+    && tar xpzf master.tar.gz \
+    && rm -f master.tar.gz \
+    && cd ZeroNet-master \
+    && mkdir log \
+    && touch log/error.log
+
+WORKDIR $HOME/ZeroNet-master
+CMD python zeronet.py --ui_ip 0.0.0.0
