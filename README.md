@@ -3,11 +3,6 @@ Intro
 
 Running Zeronet in Docker container
 
-Build
-=====
-```
-docker build -t my/zeronet .
-```
 
 Run
 ===
@@ -37,3 +32,9 @@ docker-compose up -d
 ```
 
 And access it via `http://zeronet:43110`
+
+
+If you wish to build the image
+```
+docker build -t my/zeronet .
+```
