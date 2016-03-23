@@ -4,5 +4,8 @@
 # Switch to the directory of this script
 cd "$(dirname "$(realpath "$0")")"
 
+# Optionall you may want to enable Tor in order to anonymize the traffic
+/usr/bin/tor &
+
 chown -Rh $USER:$USER $DATA
 su -s /bin/sh $USER -c "python zeronet.py --ui_ip 0.0.0.0"

@@ -5,7 +5,9 @@ services:
     build: ./
     read_only: false
     networks:
-      net:
+      - net
+    ports:
+      - 15441:15441
     volumes:
       - data:/data
 
