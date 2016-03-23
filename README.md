@@ -12,7 +12,7 @@ docker build -t my/zeronet .
 Run
 ===
 ```
-docker run -d --name zeronet -v zeronetdata:/data -p 43110:43110 my/zeronet
+docker run -d --name zeronet -v zeronet_data:/data -p 43110:43110 my/zeronet
 ```
 
 Access
@@ -28,7 +28,7 @@ If you already have your Web browser running in a container (e.g. Firefox in
 the `firefox_net` network), then you can run Zeronet container in the
 following way
 ```
-docker run -d --name zeronet -v zeronetdata:/data --net firefox_net my/zeronet
+docker run -d --name zeronet -v zeronet_data:/data --net firefox_net my/zeronet
 ```
 
 With docker-compose it is even simpler
