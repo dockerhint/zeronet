@@ -1,0 +1,18 @@
+version: '2'
+
+services:
+  zeronet:
+    build: ./
+    read_only: false
+    networks:
+      net:
+    volumes:
+      - data:/data
+
+volumes:
+  data: {}
+
+networks:
+  net:
+    external:
+      name: firefox_net

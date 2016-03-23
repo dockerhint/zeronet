@@ -11,16 +11,20 @@ RUN echo '@testing http://dl-cdn.alpinelinux.org/alpine/edge/testing' >> /etc/ap
 ENV USER zeronet
 ENV UID 7000
 ENV HOME /home/$USER
+# ENV PROJECT_VER v0.3.5
+# ENV PROJECT ZeroNet-0.3.5
+ENV PROJECT_VER master
 ENV PROJECT ZeroNet-master
 ENV DATA /data
+
 RUN adduser -D -u $UID -h $HOME -s /bin/true $USER
 
 USER $USER
 VOLUME [ "$DATA" ]
 WORKDIR $HOME
-RUN wget -q https://github.com/HelloZeroNet/ZeroNet/archive/master.tar.gz \
-    && tar xpzf master.tar.gz \
-    && rm -f master.tar.gz \
+RUN wget -q https://github.com/HelloZeroNet/ZeroNet/archive/${PROJECT_VER}.tar.gz \
+    && tar xpzf ${PROJECT_VER}.tar.gz \
+    && rm -f ${PROJECT_VER}.tar.gz \
     && cd $PROJECT \
     && mkdir log \
     && touch log/error.log \
