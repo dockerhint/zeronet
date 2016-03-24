@@ -21,7 +21,8 @@ RUN adduser -D -u $UID -h $HOME -s /bin/true $USER
 
 # Optionall you may want to enable Tor in order to anonymize the traffic
 RUN apk add tor@testing
-RUN echo -e "ControlPort 9051" > /etc/tor/torrc
+RUN echo -e "ControlPort 9051\nSocksListenAddress 0.0.0.0" > /etc/tor/torrc
+# RUN echo -e "ControlPort 9051" > /etc/tor/torrc
 # RUN echo -e "ControlPort 9051\nCookieAuthentication 1" > /etc/tor/torrc
 # RUN adduser $USER tor
 

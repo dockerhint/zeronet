@@ -38,3 +38,19 @@ If you wish to build the image
 ```
 docker build -t my/zeronet .
 ```
+
+
+Tor proxy
+---------
+
+Additionally you can use this zeronet container as Tor proxy.
+
+Firefox configuration
+```
+Manual proxy configuration
+SOCKS Host: zeronet
+SOCKS Port: 9050
+SOCKS version: v5
+[x] Remote DNS
+No Proxy for: localhost, 127.0.0.1, zeronet
+```
