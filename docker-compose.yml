@@ -5,7 +5,7 @@ services:
     build: ./
     read_only: false
     networks:
-      - net
+      - isolated
     ports:
       - 15441:15441
     volumes:
@@ -15,6 +15,6 @@ volumes:
   data: {}
 
 networks:
-  net:
+  isolated:
     external:
-      name: firefox_net
+      name: isolated

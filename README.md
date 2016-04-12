@@ -54,3 +54,12 @@ SOCKS version: v5
 [x] Remote DNS
 No Proxy for: localhost, 127.0.0.1, zeronet
 ```
+
+Backing up the data
+-------------------
+
+The following command will create a backup of your zeronet_data volume in your $HOME/zeronet_data.tar
+
+```
+docker run --rm -v zeronet_data:/data:ro -v $(pwd):/backup alpine:3.3 tar cvf /backup/zeronet_data.tar /data
+```
