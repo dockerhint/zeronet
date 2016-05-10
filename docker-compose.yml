@@ -1,20 +1,13 @@
 version: '2'
 
+volumes:
+  data: {}
+
 services:
   zeronet:
-    build: ./
-    read_only: false
-    networks:
-      - isolated
+    image: andrey01/zeronet
+    network_mode: bridge
     ports:
       - 15441:15441
     volumes:
       - data:/data
-
-volumes:
-  data: {}
-
-networks:
-  isolated:
-    external:
-      name: isolated
