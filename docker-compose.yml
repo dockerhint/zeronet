@@ -5,7 +5,7 @@ volumes:
 
 services:
   zeronet:
-    image: andrey01/zeronet
+    image: rpio/zeronet
     network_mode: bridge
     ports:
       - 15441:15441
